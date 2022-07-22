@@ -8,6 +8,8 @@ let turnCount = 1;
 let xMarker = 'X';
 let oMarker = 'O';
 let currentMarker = xMarker;
+let playerX = '';
+let playerO = ''; 
 const winConditions = 
                     [[0,1,2],
                     [3,4,5],
@@ -86,15 +88,17 @@ const game = () => {
     }
 
     startButton.addEventListener('click', () => {
-        playerX = playerXName.value;
-        playerO = playerOName.value;
+        if (playerXName.value) playerX = playerXName.value;
+        else playerX = 'X';
+        if (playerOName.value) playerO = playerOName.value;
+        else playerO = 'O';
         currentMarker = xMarker;
         turn.innerText = `${playerX}'s turn!`;
         resetBoard();
     })
 
     boardContainer.addEventListener('click', (e) => {
-        if (e.target.classList.contains('cell')) {
+        if (playerX && playerO) {if (e.target.classList.contains('cell')) {
             if (e.target.innerText != '') return;
             e.target.innerText = currentMarker;
             checkForWin();
@@ -106,16 +110,19 @@ const game = () => {
                 turn.innerText = `${playerX}'s turn!`;         
                 return currentMarker = xMarker;
             }
-        }
+        }}
+        else return;
     })
 
     rematchButton.addEventListener('click', resetBoard);
     
     quitButton.addEventListener('click', () => {
         resetBoard();
-        turn.innerText = '';
+        turn.innerText = 'please indicate who is playing';
         playerOName.value = '';
         playerXName.value = '';
+        playerX = playerXName.value;
+        playerO = playerOName.value;
     })
 
     const checkForWin = () => {
