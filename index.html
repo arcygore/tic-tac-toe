@@ -9,10 +9,30 @@
     <title>Arcygore's TicTacToe</title>
 </head>
 <body>
-    <h1 class="title">hello, welcome to Tic Tac Toe</h1>
-    <div class="game-board">
-
+    <div class="title-container">
+        <h1 class="title">hello, welcome to ttt</h1>
+        <h2 class="turn"></h2>
     </div>
-    
+    <div class="main-content">
+        <div class="left-side">
+            Who is playing?
+            <div class="player-x"><span>"X" </span><input type="text" class="playerXname"></div>
+            <div class="player-o"><span>"O" </span><input type="text" class="playerOname"></div>
+            <div class="game-buttons">
+                <button class="start button">Start</button>
+                <button class="reset button">Reset</button>
+            </div>
+        </div>
+        <div class="game-board">
+        </div>
+    </div>
+    <div class="winner-modal">
+        <p class="winner-text"> </p>
+        <div class="modal-buttons">
+            <button class="rematch button">Rematch</button>
+            <button class="quit button">Quit</button>
+        </div>
+    </div>
+    <div class="overlay"></div>
 </body>
 </html>
