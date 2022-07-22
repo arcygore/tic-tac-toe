@@ -83,6 +83,7 @@ const game = () => {
             turnCount = 1;
         }) 
         currentMarker = xMarker;
+        turn.innerText = `${playerX}'s turn!`;   
         winnerModal.classList.remove('active');
         overlay.classList.remove('active');
     }
